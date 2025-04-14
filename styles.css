@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5 {
 
 
 .hero {
-    background: linear-gradient(rgba(11, 26, 50, 0.9), rgba(11, 26, 50, 0.9)), url('/IMAGES/fondo.jpg') no-repeat center center;
+    background: linear-gradient(rgba(11, 26, 50, 0.9), rgba(11, 26, 50, 0.9)), url('IMAGES/fondo.jpg') no-repeat center center;
     background-size: cover;
     height: 100vh;
   }
