@@ -14,127 +14,157 @@
   scroll-behavior: smooth;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    background-color: var(--color-light);
-    color: #333;
-  }
+html{
+    overflow-x: hidden;
+}
 
-  
+body {
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  background-color: var(--color-light);
+  color: #333;
+}
+
 h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
 
-
+/* Hero */
 .hero {
-    background: linear-gradient(rgba(11, 26, 50, 0.9), rgba(11, 26, 50, 0.9)), url('IMAGES/fondo.jpg') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-  }
-  
-  .logo {
-    height: 50px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in forwards;
-  }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-    }
-  }
+  background: linear-gradient(rgba(11, 26, 50, 0.9), rgba(11, 26, 50, 0.9)), url('IMAGES/fondo.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+}
 
-  .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-    display: none;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  
-  .back-to-top:hover {
+.logo {
+  height: 50px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
     opacity: 1;
   }
+}
 
-
-  /* Evita que el carrusel cambie de tamaño */
-.carousel-inner {
-    min-height: 130px; /* ajustado a Home Center */
-  }
-  
-  /* Estilo uniforme para logos */
-  .logo-img {
-    max-height: 120px;
-    max-width: 160px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-  }
-  
-  .logo-img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-  
-  /* Transición más suave */
-  .carousel-item {
-    transition: transform 1s ease, opacity 1s ease;
-  }
-
-  .logo-img {
-    max-height: 80px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
-    transition: transform 0.3s ease;
-  }
-  
-  .logo-img:hover {
-    transform: scale(1.05);
-  }
-
-
-  
-/* Testimonios */
-.testimonio {
-    border-left: 5px solid var(--color-primary);
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-  }
-  
-  .testimonio h6 {
-    margin-top: 1rem;
-    margin-bottom: 0;
-  }
-  
-  .testimonio small {
-    color: var(--color-muted);
-  }
-  
-
-  /* Responsive mejoras */
+/* Responsive hero text */
 @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-    }
-  
-    section {
-      padding: 3rem 0;
-    }
-  
-    .testimonio {
-      padding: 1rem;
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Botón back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
+/* --------------------- */
+/* --------- CAROUSEL DE LOGOS --------- */
+/* Altura mínima de los slides */
+#corporateCarousel .carousel-item {
+  min-height: 350px;
+}
+
+@media (max-width: 401px) {
+    #corporateCarousel .carousel-item {
+      min-height: 550px;
     }
   }
+
+/* Responsive para tablets */
+@media (min-width: 768px) {
+  #corporateCarousel .carousel-item {
+    min-height: 350px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    #corporateCarousel .carousel-item {
+      min-height: 275px;
+    }
+  }
+/* Responsive para escritorio */
+@media (min-width: 1200px) {
+  #corporateCarousel .carousel-item {
+    min-height: 120px;
+  }
+}
+
+/* Contenido centrado + responsive */
+#corporateCarousel .carousel-item > div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* ¡Ahora los logos bajan! */
+  gap: 2rem; /* Separación entre logos */
+}
+
+/* Estilos de los logos */
+.logo-img {
+  max-height: 120px;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  transition: all 0.5s ease;
+}
+
+.logo-img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Transición de slides */
+.carousel-item {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+/* --------------------- */
+/* --------- TESTIMONIOS --------- */
+.testimonio {
+  border-left: 5px solid var(--color-primary);
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.testimonio h6 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.testimonio small {
+  color: var(--color-muted);
+}
+
+/* Responsive mejoras generales */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  .testimonio {
+    padding: 1rem;
+  }
+}
